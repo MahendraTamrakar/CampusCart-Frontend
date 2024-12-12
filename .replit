@@ -1,0 +1,29 @@
+run = "npm run dev"
+entrypoint = "README.md"
+modules = ["nodejs-20"]
+hidden = [".config", "package-lock.json", ".next", ".swc"]
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json"]
+
+[nix]
+channel = "stable-23_05"
+
+[unitTest]
+language = "nodejs"
+
+[env]
+NEXT_TELEMETRY_DISABLED = "1"
+
+[deployment]
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+deploymentTarget = "cloudrun"
+ignorePorts = false
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[objectStorage]
+defaultBucketID = "replit-objstore-7d95f1f3-5999-4c1a-bb2c-1967dea97e44"
