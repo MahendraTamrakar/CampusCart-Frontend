@@ -76,7 +76,6 @@ export default function SellPage() {
             toast({
                 title: "Error",
                 description: "Please upload at least one image.",
-                variant: "destructive",
             });
             setIsSubmitting(false);
             return;
@@ -129,7 +128,6 @@ export default function SellPage() {
         toast({
             title: "Error",
             description: error.response?.data?.message || "Failed to add product. Please try again.",
-            variant: "destructive",
         });
     } finally {
         setIsSubmitting(false);

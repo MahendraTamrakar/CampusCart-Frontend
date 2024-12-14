@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import formidable from 'formidable'
+import formidable, { File } from 'formidable'
 import fs from 'fs'
 
 export const config = {
@@ -16,11 +16,12 @@ export default async function handler(
     return res.status(405).json({ message: 'Method Not Allowed' })
   }
 
-  const form = new formidable.IncomingForm()
-  form.uploadDir = './public/uploads'
-  form.keepExtensions = true
+  const form = new formidable.IncomingForm({
+    uploadDir: './public/uploads',
+    keepExtensions: true,
+  })
 
-  form.parse(req, async (err, fields, files) => {
+  form.parse(req, async (err: any, fields: { productName: string | (string | undefined)[] | undefined; brandName: string | (string | undefined)[] | undefined; description: string | (string | undefined)[] | undefined; price: unknown; quantity: unknown }, files: { image: any }) => {
     if (err) {
       console.error('Error parsing form:', err)
       return res.status(500).json({ message: 'Error processing form data' })
@@ -28,17 +29,29 @@ export default async function handler(
 
     try {
       // Process the product details
-      const productDetails = {
-        productName: fields.productName,
-        brandName: fields.brandName,
-        description: fields.description,
-        price: parseFloat(fields.price as string),
-        quantity: parseInt(fields.quantity as string),
+      interface ProductImage {
+        filename: string;
+        path: string;
+      }
+
+      const productDetails: {
+        productName: string | undefined;
+        brandName: string | undefined;
+        description: string | undefined;
+        price: number;
+        quantity: number;
+        images: ProductImage[];
+      } = {
+        productName: Array.isArray(fields.productName) ? fields.productName[0] : fields.productName,
+        brandName: Array.isArray(fields.brandName) ? fields.brandName[0] : fields.brandName,
+        description: Array.isArray(fields.description) ? fields.description[0] : fields.description,
+        price: parseFloat(Array.isArray(fields.price) ? fields.price[0] : fields.price as unknown as string),
+        quantity: parseInt(Array.isArray(fields.quantity) ? fields.quantity[0] : fields.quantity as unknown as string),
         images: [],
       }
 
       // Process uploaded images
-      const imageFiles = files.image as formidable.File[]
+      const imageFiles = files.image as File | File[]
       if (Array.isArray(imageFiles)) {
         productDetails.images = imageFiles.map(file => ({
           filename: file.newFilename,
