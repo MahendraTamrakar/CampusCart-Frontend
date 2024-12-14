@@ -53,10 +53,13 @@ export function SignInComponent() {
     e.preventDefault();
     if (validateForm(signInData, 'signIn')) {
       try {
-        const response = await axios.post('http://localhost:5000/api/auth/login', signInData);
+        const response = await axios.post('https://campuscartbackend.onrender.com/api/auth/login', signInData);
+        console.log(response)
         console.log('Sign In successful:', response.data);
         localStorage.setItem('jwtToken', response.data.token);
-        router.push('/');
+        const pname = signInData.email.split('@')[0];
+        console.log(pname)
+        router.push(`/homepage/${pname}`);
       } catch (error: any) {
         console.error('Signin error:', error);
         setErrors(prev => ({
@@ -91,7 +94,7 @@ export function SignInComponent() {
               type="email" 
               name="email"
               placeholder="Email" 
-              className={`bg-[#eee] border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.email ? 'shake border-red-500' : ''}`}
+              className={`bg-[#eee] text-black border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.email ? 'shake border-red-500' : ''}`}
               value={signUpData.email}
               onChange={handleSignUpChange}
             />
@@ -99,7 +102,7 @@ export function SignInComponent() {
               type="password" 
               name="password"
               placeholder="Password" 
-              className={`bg-[#eee] border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.password ? 'shake border-red-500' : ''}`}
+              className={`bg-[#eee] text-black border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.password ? 'shake border-red-500' : ''}`}
               value={signUpData.password}
               onChange={handleSignUpChange}
             />
@@ -108,13 +111,13 @@ export function SignInComponent() {
         </div>
         <div className="form-container sign-in absolute top-0 h-full transition-all duration-[0.6s] ease-in-out left-0 w-1/2 z-[2]">
           <form onSubmit={handleSignIn} className="bg-white flex items-center justify-center flex-col px-10 h-full">
-            <h1 className="text-3xl font-bold mb-4">Sign In</h1>
-            <div className="social-icons flex mb-5">
+            <h1 className="text-3xl text-black font-bold mb-12">Sign In</h1>
+            {/* <div className="social-icons flex mb-5">
               <a href="#" className="border border-[#ccc] rounded-[20%] text-red-500 hover:bg-red-500 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaGooglePlusG /></a>
               <a href="#" className="border border-[#ccc] rounded-[20%] text-blue-600 hover:bg-blue-600 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaFacebookF /></a>
               <a href="#" className="border border-[#ccc] rounded-[20%] text-blue-700 hover:bg-blue-700 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaLinkedinIn /></a>
             </div>
-            <span className="text-xs mb-5"><span className='font-bold'>or</span> use your email password</span>
+            <span className="text-xs mb-5"><span className='font-bold'>or</span> use your email password</span> */}
             <input 
               type="email" 
               name="email"
@@ -127,7 +130,7 @@ export function SignInComponent() {
               type="password" 
               name="password"
               placeholder="Password" 
-              className={`bg-[#eee] border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signIn.password ? 'shake border-red-500' : ''}`}
+              className={`bg-[#eee] text-black border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signIn.password ? 'shake border-red-500' : ''}`}
               value={signInData.password}
               onChange={handleSignInChange}
             />
@@ -150,14 +153,14 @@ export function SignInComponent() {
             <div className="toggle-panel toggle-right absolute w-1/2 h-full flex items-center justify-center flex-col p-[0_30px] text-center top-0 right-0 transform translate-x-0 transition-all duration-[0.6s] ease-in-out">
               <h1 className="text-3xl font-bold mb-4">Hello, Friend!</h1>
               <p className="text-sm mb-5">Register with your personal details to use all of site features</p>
-              <a href="/sign-up">
+              <Link href="/sign-up">
               <button 
                 className="bg-transparent text-white text-xs py-2.5 px-[45px] border border-white rounded-lg font-semibold tracking-[0.5px] uppercase mt-2.5 cursor-pointer transition-transform hover:scale-105"
-                
+                type='button'
               >
                 Sign Up
               </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

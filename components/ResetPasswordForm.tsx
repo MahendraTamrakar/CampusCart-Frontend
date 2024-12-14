@@ -40,7 +40,7 @@ export default function ResetPasswordForm({ userId, token }: { userId: string; t
     try {
       const data = { password, confirmPassword }; // Send data as JSON
       const result = await axios.post(
-        `http://localhost:5000/api/auth/reset-password/${userId}/${token}`,
+        `https://campuscartbackend.onrender.com/api/auth/reset-password/${userId}/${token}`,
         data,
         { headers: { 'Content-Type': 'application/json' } } // Specify JSON format
       );

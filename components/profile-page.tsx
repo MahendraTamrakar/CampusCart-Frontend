@@ -34,7 +34,7 @@ export default function ProfilePage() {
                   <img src="/placeholder.svg" alt="Profile" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <Label htmlFor="profile-picture" className="cursor-pointer bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition-colors">
+                  <Label htmlFor="profile-picture" className="bg-white bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-none text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                     Upload Picture
                   </Label>
                   <Input id="profile-picture" type="file" accept="image/*" className="hidden" />
@@ -145,7 +145,7 @@ export default function ProfilePage() {
               </div>
             </section>
 
-            <Button className="w-full bg-black text-white rounded-none hover:bg-gray-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <Button className="w-full bg-black text-white rounded-none bg-white bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               Save Changes
             </Button>
           </div>

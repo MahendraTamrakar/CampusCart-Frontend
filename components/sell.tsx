@@ -27,14 +27,14 @@ interface ProductDetails {
 export default function SellPage() {
   const router = useRouter();
   
-  // useEffect(() => {
-  //   const token = localStorage.getItem('jwtToken')
-  //   if (!token) {
-  //     alert("You are not Authorized , first sign up or sign in")
-  //     router.push('/sign-in')
-  //   }
+  useEffect(() => {
+    const token = localStorage.getItem('jwtToken')
+    if (!token) {
+      alert("You are not Authorized , first sign up or sign in")
+      router.push('/sign-in')
+    }
 
-  // }, [])
+  }, [])
 
 
  const [productDetails, setProductDetails] = useState<ProductDetails>({
@@ -96,7 +96,7 @@ export default function SellPage() {
         formData.append('sellerEmail', productDetails.sellerEmail);
 
         // Make the request with FormData and proper headers
-        const response = await axios.post('http://localhost:5000/api/products', formData, {
+        const response = await axios.post('https://campuscartbackend.onrender.com/api/products', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`, // Include auth token if needed
@@ -195,7 +195,7 @@ export default function SellPage() {
             </div>
 
             <InputField
-              label="Price (in $)"
+              label="Price (in ₹)"
               id="price"
               name="price"
               type="number"

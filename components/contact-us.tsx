@@ -38,7 +38,8 @@ export function ContactPage() {
     setSuccessMessage('')
 
     try {
-      const response = await axios.post('http://localhost:5000/api/contact', formData)
+      const response = await axios.post('https://campuscartbackend.onrender.com/api/contact', formData)
+      console.log(response)
 
       // If the message is sent successfully, show success message
       setSuccessMessage(response.data.message)

@@ -39,65 +39,51 @@ export function Footer() {
             </div>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold flex items-center space-x-2">
+            <h3 className="text-lg text-green-500 font-semibold flex items-center space-x-2">
 {/*               <Leaf className="h-5 w-5 text-green-500" />
  */}              <BadgeCheck className="h-5 w-5 text-green-500" />
               <span>Company</span>
             </h3>
             <ul className="space-y-2">
+            <li>
+                <Link href="/profile" className="text-gray-500 hover:text-green-500 transition-colors">
+                 Your Account
+                </Link>
+              </li>
               <li>
                 <Link href="/aboutUs" className="text-gray-500 hover:text-green-600 transition-colors">
                   About us
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="text-gray-500 hover:text-green-600 transition-colors">
-                  Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-500 hover:text-green-600 transition-colors">
-                  Affiliate Programme
-                </Link>
-              </li>
+              
 
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold flex items-center space-x-2">
+            <h3 className="text-lg text-blue-500 font-semibold flex items-center space-x-2">
               <Gift className="h-5 w-5 text-blue-500" />
               <span>Quick Links</span>
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-gray-500 hover:text-blue-500 transition-colors">
-                  Offers
+                <Link href="/profile" className="text-gray-500 hover:text-blue-500 transition-colors">
+                 Your Account
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-500 hover:text-blue-500 transition-colors">
-                  Discount Coupons
+                <Link href="/BuyPage" className="text-gray-500 hover:text-blue-500 transition-colors">
+                  Buy on CampusCart
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-500 hover:text-blue-500 transition-colors">
-                  Stores
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-500 hover:text-blue-500 transition-colors">
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-500 hover:text-blue-500 transition-colors">
-                  Info
+                <Link href="/SellPage" className="text-gray-500 hover:text-blue-500 transition-colors">
+                  Sell Your Products
                 </Link>
               </li>
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold flex items-center space-x-2">
+            <h3 className="text-lg font-semibold text-purple-500 flex items-center space-x-2">
               <Phone className="h-5 w-5 text-purple-500" />
               <span>Customer Service</span>
             </h3>
@@ -112,25 +98,21 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              
               <li>
-                <Link href="#" className="text-gray-500 hover:text-purple-500 transition-colors">
+                <Link href="/PrivacyPolicy" className="text-gray-500 hover:text-purple-500 transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-500 hover:text-purple-500 transition-colors">
-                  Cookie Guidelines
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-500 hover:text-purple-500 transition-colors">
-                  Delivery Information
+                <Link href="/TermsOfUse" className="text-gray-500 hover:text-purple-500 transition-colors">
+                  Terms of Use
                 </Link>
               </li>
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold flex items-center space-x-2">
+            <h3 className="text-lg font-semibold flex text-yellow-500 items-center space-x-2">
               <EnvelopeClosedIcon className="h-5 w-5 text-yellow-500" />
               <span>Subscribe Us</span>
             </h3>

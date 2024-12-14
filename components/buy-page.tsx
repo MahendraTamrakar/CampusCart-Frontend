@@ -32,7 +32,7 @@ export function BuyPage() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   // Environment variables
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://campuscartbackend.onrender.com';
 
   // Fetch products
   useEffect(() => {
@@ -151,10 +151,11 @@ export function BuyPage() {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {products.map((product) => (
-            <Link href={`/products/${product.id}`} key={product.id}>
-              <Card
-                className="relative overflow-hidden border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none bg-white transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-              >
+                      
+               <Card
+                  key={product.id}
+                  className="relative overflow-hidden border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none bg-white transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                >
                 <CardContent className="p-0">
                   {/* Product Image */}
                   <div className="relative">
@@ -171,7 +172,7 @@ export function BuyPage() {
                       }}
                     />
                     {/* Quick Add to Cart Button */}
-                    <Button
+                    {/* <Button
                       variant="outline"
                       size="icon"
                       className="absolute rounded-full top-2 right-2 bg-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
@@ -182,7 +183,7 @@ export function BuyPage() {
                     >
                       <ShoppingCart className="h-4 w-4 text-black hover:text-white" />
                       <span className="sr-only">Add to Cart</span>
-                    </Button>
+                    </Button> */}
                   </div>
 
                   {/* Product Details */}
@@ -191,7 +192,7 @@ export function BuyPage() {
                     <h3 className="font-mono text-black font-semibold">{product.name}</h3>
                     <div className="flex justify-between items-center">
                       <p className="font-mono text-black font-bold text-lg">
-                        ${product.price.toFixed(2)}
+                      ₹{product.price.toFixed(2)}
                       </p>
                       {/* Quantity Controls */}
                       <div className="flex items-center space-x-2">
@@ -206,7 +207,7 @@ export function BuyPage() {
                         >
                           <Minus className="h-4 w-4" />
                         </Button>
-                        <span className="text-sm font-mono w-8 text-center">
+                        <span className="text-sm text-black font-mono w-8 text-center">
                           {quantities[product.id]}
                         </span>
                         <Button
@@ -226,19 +227,17 @@ export function BuyPage() {
                 </CardContent>
 
                 {/* Buy Button */}
+                <Link href={`/products/${product.id}`} key={product.id}>
                 <CardFooter className="p-4 pt-0">
                   <Button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      addToCart(product);
-                    }}
-                    className="w-full bg-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 text-white rounded-none font-mono border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                    className="w-full bg-black bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-none font-mono border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                   >
-                    Add to Cart
+                    View Product
                   </Button>
                 </CardFooter>
+                </Link>
               </Card>
-            </Link>
+            
           ))}
         </div>
       </div>

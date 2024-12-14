@@ -6,7 +6,7 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 export function SignUpComponent() {
-  const [isActive, setIsActive] = useState(false) 
+  const [isActive, setIsActive] = useState(true) 
   const containerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
@@ -67,7 +67,7 @@ export function SignUpComponent() {
     if (validateForm(signUpData, 'signUp')) {
       setLoading(true)
       try {
-        const response = await axios.post('http://localhost:5000/api/auth/signup', signUpData)
+        const response = await axios.post('https://campuscartbackend.onrender.com/api/auth/signup', signUpData)
         console.log('Signup successful:', response.data)
         handleToggle()
       } catch (error: any) {
@@ -112,19 +112,19 @@ export function SignUpComponent() {
       <div ref={containerRef} className={`container bg-white rounded-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] relative overflow-hidden w-[768px] max-w-full min-h-[480px] ${isActive ? 'active' : ''}`}> 
         <div className="form-container sign-up absolute top-0 h-full transition-all duration-[0.6s] ease-in-out left-0 w-1/2 opacity-0 z-[1]">
           <form onSubmit={handleSignUp} className="bg-white flex items-center justify-center flex-col px-10 h-full">
-            <h1 className="text-3xl font-bold mb-4">Create Account</h1>
+            <h1 className="text-3xl font-bold mb-12">Create Account</h1>
             <ErrorMessage message={errorMessage} />
-            <div className="social-icons flex mb-5">
+            {/* <div className="social-icons flex mb-5">
               <a href="#" className="border border-[#ccc] rounded-[20%] text-red-500 hover:bg-red-500 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaGooglePlusG /></a>
               <a href="#" className="border border-[#ccc] rounded-[20%] text-blue-600 hover:bg-blue-600 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaFacebookF /></a>
               <a href="#" className="border border-[#ccc] rounded-[20%] text-blue-700 hover:bg-blue-700 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaLinkedinIn /></a>
-            </div>
-            <span className="text-xs mb-5"><span className='font-bold'>or</span> use your email for registration</span>
-            <input 
+            </div> */}
+{/*             <span className="text-xs mb-5"><span className='font-bold'>or</span> use your email for registration</span>
+ */}            <input 
               type="text" 
               name="name"
               placeholder="Name" 
-              className={`bg-[#eee] border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.name ? 'shake border-red-500' : ''}`}
+              className={`bg-[#eee] text-black border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.name ? 'shake border-red-500' : ''}`}
               value={signUpData.name}
               onChange={handleSignUpChange}
             />
@@ -133,7 +133,7 @@ export function SignUpComponent() {
               type="email" 
               name="email"
               placeholder="Email" 
-              className={`bg-[#eee] border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.email ? 'shake border-red-500' : ''}`}
+              className={`bg-[#eee] text-black border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.email ? 'shake border-red-500' : ''}`}
               value={signUpData.email}
               onChange={handleSignUpChange}
             />
@@ -142,7 +142,7 @@ export function SignUpComponent() {
               type="password" 
               name="password"
               placeholder="Password" 
-              className={`bg-[#eee] border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.password ? 'shake border-red-500' : ''}`}
+              className={`bg-[#eee] text-black border-none mb-2 py-2.5 px-[15px] text-sm rounded-lg w-full outline-none ${errors.signUp.password ? 'shake border-red-500' : ''}`}
               value={signUpData.password}
               onChange={handleSignUpChange}
             />

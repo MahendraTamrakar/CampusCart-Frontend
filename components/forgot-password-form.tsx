@@ -19,7 +19,7 @@ export default function ForgotPasswordForm() {
     setIsError(false)
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/forgot-password', { email })
+      const response = await axios.post('https://campuscartbackend.onrender.com/api/auth/forgot-password', { email })
       setMessage(response.data.message || 'Password reset link sent to your email')
     } catch (error: any) {
       setMessage(error.response?.data?.error || 'Failed to send reset link')

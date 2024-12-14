@@ -27,7 +27,7 @@ export default function Reviews({ initialReviews }: ReviewsProps) {
   const [newReview, setNewReview] = useState({ userName: '', rating: 5, comment: '' });
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
 
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+  const API_BASE_URL =  'https://campuscartbackend.onrender.com';
 
   useEffect(() => {
     if (!id) {
@@ -74,7 +74,7 @@ export default function Reviews({ initialReviews }: ReviewsProps) {
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold font-mono text-black">Customer Reviews</h2>
         <div className="flex items-center gap-2">
-          <span className="font-mono text-sm">Filter by:</span>
+          <span className="font-mono text-black text-sm">Filter by:</span>
           <div className="flex gap-1">
             {[5, 4, 3, 2, 1].map((rating) => (
               <Button
@@ -115,7 +115,7 @@ export default function Reviews({ initialReviews }: ReviewsProps) {
             key={review.id}
             className="border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
           >
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between text-black items-center mb-2">
               <span className="font-mono font-bold">{review.userName}</span>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -147,10 +147,10 @@ export default function Reviews({ initialReviews }: ReviewsProps) {
           value={newReview.userName}
           onChange={(e) => setNewReview({ ...newReview, userName: e.target.value })}
           required
-          className="font-mono border-2 border-black"
+          className="font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-black border-2 border-black"
         />
         <div className="flex items-center space-x-2">
-          <span className="font-mono">Rating:</span>
+          <span className="font-mono text-black">Rating:</span>
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
@@ -166,11 +166,11 @@ export default function Reviews({ initialReviews }: ReviewsProps) {
           value={newReview.comment}
           onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
           required
-          className="font-mono border-2 border-black"
+          className="font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-black border-2 border-black"
         />
         <Button
           type="submit"
-          className="w-full bg-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 text-white rounded-none font-mono border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+          className="w-full bg-black bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-none font-mono border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
         >
           Submit Review
         </Button>

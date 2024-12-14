@@ -12,17 +12,19 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { SignInComponent } from './sign-in'
+import { useRouter } from 'next/navigation' 
 
 
 
 export function ECommerceNav() {
   const [isSearchVisible, setIsSearchVisible] = useState(false)
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const [cart, setCart] = useState<{ name: string, quantity: number }[]>([])
-
+  const router = useRouter()
   useEffect(() => {
     setIsCartOpen(false)
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
@@ -39,8 +41,9 @@ export function ECommerceNav() {
     document.documentElement.classList.toggle('dark')
   }
 
+
   const navItems = [
-    { name: 'Home', href: '/homepage' },
+    { name: 'Home', href: `/` },
    /*  { name: 'Best Sellers', href: '#' },
     { name: 'Gift Ideas', href: '#' },
     { name: "Today's Deals", href: '#' }, */
@@ -51,14 +54,27 @@ export function ECommerceNav() {
   ]
 
   const userMenuItems = [
-    { name: 'My Account', href: '#' },
-    { name: 'My Orders', href: '#' },
-    { name: 'Settings', href: '#' },
+    { name: 'My Account', href: '/profile' },
+    
+    /* { name: 'Settings', href: '#' },
     { name: 'Favourites', href: '#' },
-   /*  { name: 'Delivery Addresses', href: '#' } */
-    { name: 'Billing Data', href: '#' },
+   /*  { name: 'Delivery Addresses', href: '#' }
+    { name: 'Billing Data', href: '#' }, */
   ]
 
+   // Check for JWT token on component mount
+    useEffect(() => {
+      const token = localStorage.getItem('jwtToken')
+      if (token) {
+        setIsAuthenticated(true)
+      }
+    }, [])
+  
+  const handleSignOut = () => {
+    localStorage.removeItem('jwtToken')
+    setIsAuthenticated(false)
+    router.push('/')
+  }
 
   const addToCart = (itemName: string) => {
     setCart((prevCart) => {
@@ -121,7 +137,7 @@ export function ECommerceNav() {
         </div> */}
 
         <div className="flex items-center lg:space-x-2">
-        <DropdownMenu open={isCartOpen} onOpenChange={setIsCartOpen}>
+        {/* <DropdownMenu open={isCartOpen} onOpenChange={setIsCartOpen}>
           <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
@@ -159,7 +175,7 @@ export function ECommerceNav() {
             </Fragment>
           )}
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
           <Button
@@ -181,7 +197,7 @@ export function ECommerceNav() {
             </DropdownMenuItem>
           ))}
           <DropdownMenuSeparator />
-          <DropdownMenuItem onSelect={toggleTheme}>
+          {/* <DropdownMenuItem onSelect={toggleTheme}>
             <div className="flex items-center justify-between w-full">
             <span>Theme</span>
             {theme === 'light' ? (
@@ -190,8 +206,8 @@ export function ECommerceNav() {
               <Moon className="w-4 h-4" />
             )}
             </div>
-          </DropdownMenuItem>
-          <DropdownMenuItem>Sign Out</DropdownMenuItem>
+          </DropdownMenuItem> */}
+          <DropdownMenuItem onClick={handleSignOut}>Sign Out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <Button

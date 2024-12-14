@@ -8,6 +8,8 @@ import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import Reviews from '@/components/Reviews';
+import { ECommerceNav } from '@/components/navbar-for-all';
+import { Footer } from '@/components/footer';
 
 interface Product {
   id: string;
@@ -38,7 +40,7 @@ export default function ProductPage() {
   const params = useParams();
   const { id } = params || {};
 
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+  const API_BASE_URL = 'https://campuscartbackend.onrender.com';
 
   useEffect(() => {
     const fetchProductAndReviews = async () => {
@@ -102,23 +104,24 @@ export default function ProductPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#ffffe0] p-8">
-      <div className="max-w-4xl mx-auto bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8">
-        <div className="grid md:grid-cols-2 gap-8">
+    <div className="min-h-screen bg-[#ffffe0]">
+      <ECommerceNav/>
+      <div className=" mt-8 mb-8 max-w-5xl bg-[#FFF0D9] mx-auto border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8">
+        <div className="grid  md:grid-cols-2 gap-8">
           <div>
             <Image
               src={getImageUrl(product.image)}
               alt={product.name}
               width={500}
               height={500}
-              className="w-full aspect-square object-cover border-2 border-black"
+              className="w-full aspect-square shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] object-cover border-2 border-black"
               priority
             />
           </div>
           <div className="space-y-4">
             <h1 className="text-3xl text-black font-bold font-mono">{product.name}</h1>
             <p className="text-gray-600 font-mono">{product.brand}</p>
-            <p className="text-2xl text-black font-bold font-mono">${product.price.toFixed(2)}</p>
+            <p className="text-2xl text-black font-bold font-mono">₹{product.price.toFixed(2)}</p>
             <p className="font-mono text-black">{product.description}</p> 
             <p className="font-mono text-black">Number of items left: {product.countInStock}</p>
             <hr/>
@@ -127,17 +130,18 @@ export default function ProductPage() {
             <p className="font-mono text-black">Email: {product.sellerEmail}</p>
             <p className="font-mono text-black">Phone Number: {product.sellerPhone}</p>
             
-            <Button
+            {/* <Button
               onClick={addToCart}
-              className="w-full bg-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 text-white rounded-none font-mono border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+              className="w-full bg-black bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-none font-mono border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
-            </Button>
+            </Button> */}
           </div>
         </div>
 
         <Reviews  initialReviews={reviews} />
       </div>
+      <Footer/>
     </div>
   );
 }

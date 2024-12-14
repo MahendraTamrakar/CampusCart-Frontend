@@ -75,7 +75,7 @@ export default function ProfilePage() {
                   <img src={profilePicture ? URL.createObjectURL(profilePicture) : '/placeholder.svg'} alt="Profile" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <Label htmlFor="profile-picture" className="cursor-pointer bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition-colors">
+                  <Label htmlFor="profile-picture" className="cursor-pointer bg-white bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-none transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                     Upload Picture
                   </Label>
                   <Input id="profile-picture" type="file" accept="image/*" className="hidden" onChange={handleFileChange} />

@@ -57,7 +57,7 @@ export function LandingPagenew() {
   }, [])
 
   const navItems = [
-    { name: 'Home', href: '/homepage' },
+    { name: 'Home', href: '/' },
     { name: 'Sell', href: '/SellPage' },
     { name: 'Buy', href: '/BuyPage' },
     { name: 'Contact', href: '/contactUs' },
@@ -155,7 +155,7 @@ export function LandingPagenew() {
           <Button
             variant="default"
             size="sm"
-            className={`inline-flex items-center rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-white`}
+            className={`inline-flex items-center bg-black rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-white`}
           >
             Sign Up
           </Button>
@@ -166,12 +166,12 @@ export function LandingPagenew() {
 
   return (
     <div className="min-h-screen bg-[#ffffe0] font-mono space-y-6 md:space-y-12">
-      <nav className={`fixed top-0 left-0 right-0 pl-8 pr-10 z-50 antialiased transition-colors duration-300 bg-white/90 text-black backdrop-blur-sm`}>
+      <nav className={`fixed top-0 left-0 right-0 pl-12 pr-16 z-50 antialiased transition-colors duration-300 bg-white/90 text-black backdrop-blur-sm`}>
         <div className="w-full px-4 mx-auto 2xl:px-0 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
               <div className="shrink-0">
-                <a href="/homepage" className="block">
+                <a href="/" className="block">
                   <Image
                     className="w-60 h-16 dark:hidden"
                     src="/images/Logo-1.png"
@@ -203,16 +203,16 @@ export function LandingPagenew() {
             </div>
 
             <div className="flex items-center lg:space-x-3">
-              <DropdownMenu open={isCartOpen} onOpenChange={setIsCartOpen}>
+              {/* <DropdownMenu open={isCartOpen} onOpenChange={setIsCartOpen}>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white"
+                    className="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-300 text-sm font-medium leading-none text-gray-900 dark:text-white"
                   >
-                    <ShoppingCart className="w-5 h-5 lg:me-1" />
+                    <ShoppingCart className="w-5 h-5 text-black lg:me-1" />
                     <span className="hidden sm:inline-block text-black">My Cart</span>
-                    <ChevronDown className="hidden sm:inline-block w-4 h-4 ml-1" />
+                    <ChevronDown className="hidden text-black sm:inline-block w-4 h-4 ml-1" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-80">
@@ -241,7 +241,7 @@ export function LandingPagenew() {
                     </Fragment>
                   )}
                 </DropdownMenuContent>
-              </DropdownMenu>
+              </DropdownMenu> */}
               {renderAuthButtons()}
               <Button
                 variant="ghost"
@@ -289,7 +289,7 @@ export function LandingPagenew() {
               Essential Gear for College Life
             </h1>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link href="#">
+            <Link href="/BuyPage">
               <Button
                 className="bg-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-black px-6 py-2 rounded-none text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               >

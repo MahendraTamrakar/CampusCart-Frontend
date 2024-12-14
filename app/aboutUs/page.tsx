@@ -87,7 +87,7 @@ export default function AboutPage() {
                 { name: 'Mahendra Kumar Tamrakar', role: 'Frontend Developer', image: '/images/Mahendra1.jpg' },
                 { name: 'Lavesh Vyas', role: 'Backend Developer', image: '/images/Lavesh.jpg' },
                 { name: 'Kuldeep Vishwakarma', role: 'Frontend Developer', image: '/images/kullu.jpg' },
-                { name: 'Malay Choudhary', role: 'Frontend Developer', image: '/images/photo-2.jpg' }
+                { name: 'Malay Choudhary', role: 'Frontend Developer', image: '/images/Malay.jpg' }
               ].map((member, index) => (
                 <div key={index} className="text-center">
                   <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto mb-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden rounded-full">
