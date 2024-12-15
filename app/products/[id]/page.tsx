@@ -104,9 +104,9 @@ export default function ProductPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#ffffe0]">
+    <div className="min-h-screen pt-20 bg-[#ffffe0]">
       <ECommerceNav/>
-      <div className=" mt-8 mb-8 max-w-5xl bg-[#FFF0D9] mx-auto border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8">
+      <div className="mt-8 mb-8 max-w-5xl bg-[#FFF0D9] mx-auto border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8">
         <div className="grid  md:grid-cols-2 gap-8">
           <div>
             <Image
