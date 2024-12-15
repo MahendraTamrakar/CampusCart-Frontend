@@ -59,7 +59,7 @@ export function ContactPage() {
   }
 
   return (
-    <div className="bg-[#FFF9E5] py-16 md:py-24">
+    <div className="bg-[#FFF9E5] mt-14 py-16 md:py-24">
       <div className="container mx-auto px-4 max-w-[1200px]">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <div className="space-y-6">

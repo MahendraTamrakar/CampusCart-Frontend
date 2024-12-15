@@ -45,14 +45,24 @@ export function Footer() {
               <span>Company</span>
             </h3>
             <ul className="space-y-2">
-            <li>
+            {/* <li>
                 <Link href="/profile" className="text-gray-500 hover:text-green-500 transition-colors">
                  Your Account
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/aboutUs" className="text-gray-500 hover:text-green-600 transition-colors">
                   About us
+                </Link>
+              </li>
+              <li>
+                <Link href="/PrivacyPolicy" className="text-gray-500 hover:text-purple-500 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/TermsOfUse" className="text-gray-500 hover:text-purple-500 transition-colors">
+                  Terms of Use
                 </Link>
               </li>
               
@@ -65,11 +75,11 @@ export function Footer() {
               <span>Quick Links</span>
             </h3>
             <ul className="space-y-2">
-              <li>
+              {/* <li>
                 <Link href="/profile" className="text-gray-500 hover:text-blue-500 transition-colors">
                  Your Account
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/BuyPage" className="text-gray-500 hover:text-blue-500 transition-colors">
                   Buy on CampusCart
@@ -99,16 +109,7 @@ export function Footer() {
                 </Link>
               </li>
               
-              <li>
-                <Link href="/PrivacyPolicy" className="text-gray-500 hover:text-purple-500 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/TermsOfUse" className="text-gray-500 hover:text-purple-500 transition-colors">
-                  Terms of Use
-                </Link>
-              </li>
+              
             </ul>
           </div>
           <div className="space-y-4">

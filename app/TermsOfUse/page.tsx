@@ -6,7 +6,7 @@ export default function TermsAndConditions() {
   return (
     <div className="bg-[#FFF9E5] min-h-screen" >
             <ECommerceNav />
-            <div className="max-w-5xl mt-16 mb-16 mx-auto">
+            <div className="max-w-5xl mt-16 pt-20 mb-16 mx-auto">
       <div className="mb-12 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-600 transform skew-y-3 rounded-3xl shadow-lg"></div>
         <Card className="relative z-10 rounded-3xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white p-6 text-center">

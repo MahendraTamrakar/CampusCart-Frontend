@@ -65,7 +65,7 @@ function FAQItem({ question, answer }: FAQItem) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white/90 backdrop-blur-sm">
+    <div className="border-2  border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white/90 backdrop-blur-sm">
       <Button
         className="w-full p-4 flex justify-between items-center text-left bg-transparent hover:bg-[#FFE5B4] transition-colors duration-200"
         onClick={() => setIsOpen(!isOpen)}

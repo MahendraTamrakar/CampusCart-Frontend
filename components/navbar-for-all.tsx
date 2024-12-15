@@ -3,7 +3,7 @@
 
 import { useState, useEffect, Fragment } from 'react'
 import { Input } from "@/components/ui/input"
-import { ChevronDown, Menu, ShoppingCart, User, Sun, Moon, Search } from 'lucide-react'
+import { ChevronDown, Menu, ShoppingCart, User, Sun, Moon, Search} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -13,7 +13,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { SignInComponent } from './sign-in'
-import { useRouter } from 'next/navigation' 
+import { useRouter } from 'next/navigation'
+import Link from 'next/link' 
+
 
 
 
@@ -73,7 +75,7 @@ export function ECommerceNav() {
   const handleSignOut = () => {
     localStorage.removeItem('jwtToken')
     setIsAuthenticated(false)
-    router.push('/')
+    /* router.push('/') */
   }
 
   const addToCart = (itemName: string) => {
@@ -89,13 +91,50 @@ export function ECommerceNav() {
     });
   };
 
+  const renderAuthButtons = () => {
+    if (isAuthenticated) {
+      return (
+        <Button
+          variant="default"
+          size="sm"
+          onClick={handleSignOut}
+          className={`inline-flex items-center border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 bg-teal-700 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-white`}
+        >
+          Sign Out
+        </Button>
+      )
+    }
+    return (
+      <>
+        <Link href="/sign-in">
+          <Button
+            variant="default"
+            size="sm"
+            className={`inline-flex items-center border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 bg-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-black`}
+          >
+            Sign In
+          </Button>
+        </Link>
+        <Link href="/sign-up">
+          <Button
+            variant="default"
+            size="sm"
+            className={`inline-flex items-center bg-teal-700 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-white`}
+          >
+            Sign Up
+          </Button>
+        </Link>
+      </>
+    )
+  }
+
   return (
-    <nav className="bg-white dark:bg-gray-800 antialiased">
+    <nav className="fixed top-0 left-0 w-full bg-gray-900/90 backdrop-blur-lg z-50 shadow-md">
       <div className="max-w-screen-xl px-2 mx-auto 2xl:px-0 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-8">
         <div className="shrink-0">
-          <a href="/homepage" className="block">
+          <a href="/" className="block">
           <img
             className="w-60 h-16 dark: hidden" 
             src="/images/Logo-1.png"
@@ -113,7 +152,7 @@ export function ECommerceNav() {
           <li key={item.name}>
             <a
             href={item.href}
-            className="text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
+            className="text-sm font-medium hover:text-primary-700 transition-colors hover:text-red-700 text-white"
             >
             {item.name}
             </a>
@@ -176,7 +215,7 @@ export function ECommerceNav() {
           )}
           </DropdownMenuContent>
         </DropdownMenu> */}
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
@@ -196,7 +235,7 @@ export function ECommerceNav() {
             </a>
             </DropdownMenuItem>
           ))}
-          <DropdownMenuSeparator />
+          <DropdownMenuSeparator /> */}
           {/* <DropdownMenuItem onSelect={toggleTheme}>
             <div className="flex items-center justify-between w-full">
             <span>Theme</span>
@@ -207,9 +246,10 @@ export function ECommerceNav() {
             )}
             </div>
           </DropdownMenuItem> */}
-          <DropdownMenuItem onClick={handleSignOut}>Sign Out</DropdownMenuItem>
+          {/* <DropdownMenuItem onClick={handleSignOut}>Sign Out</DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
+        {renderAuthButtons()}
         <Button
           variant="ghost"
           size="icon"

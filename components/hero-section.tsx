@@ -134,7 +134,7 @@ export function LandingPagenew() {
           variant="default"
           size="sm"
           onClick={handleSignOut}
-          className={`inline-flex items-center rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 bg-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-black`}
+          className={`inline-flex border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] items-center rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 bg-teal-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 text-white`}
         >
           Sign Out
         </Button>
@@ -146,7 +146,7 @@ export function LandingPagenew() {
           <Button
             variant="default"
             size="sm"
-            className={`inline-flex items-center rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 bg-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-black`}
+            className={`inline-flex border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] items-center rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 bg-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-black`}
           >
             Sign In
           </Button>
@@ -155,7 +155,7 @@ export function LandingPagenew() {
           <Button
             variant="default"
             size="sm"
-            className={`inline-flex items-center bg-black rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-white`}
+            className={`inline-flex border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] items-center bg-teal-700 rounded-lg justify-center p-2 text-sm font-medium leading-none transition-colors duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white text-white`}
           >
             Sign Up
           </Button>
@@ -166,7 +166,7 @@ export function LandingPagenew() {
 
   return (
     <div className="min-h-screen bg-[#ffffe0] font-mono space-y-6 md:space-y-12">
-      <nav className={`fixed top-0 left-0 right-0 pl-12 pr-16 z-50 antialiased transition-colors duration-300 bg-white/90 text-black backdrop-blur-sm`}>
+      <nav className={`fixed top-0 left-0 right-0 pl-12 pr-16 z-50 antialiased transition-colors duration-300 text-white bg-gray-900/90 backdrop-blur-lg z-50 shadow-md`}>
         <div className="w-full px-4 mx-auto 2xl:px-0 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
@@ -384,13 +384,13 @@ export function LandingPagenew() {
                 <p className="text-black text-sm md:text-base">
                   A perfect addition to your college essentials. Do not miss out on this amazing deal!
                 </p>
-                <Button 
+                {/* <Button 
                   onClick={addToCart}
                   className="bg-black hover:bg-black/90 text-white px-5 md:px-6 py-3 md:py-4 rounded-none text-sm md:text-lg w-full md:w-auto border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white"
                 >
                   <ShoppingCart className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                   Add to Cart
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>

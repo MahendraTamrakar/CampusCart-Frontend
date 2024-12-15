@@ -140,9 +140,10 @@ export default function SellPage() {
       images: prev.images.filter((_, i) => i !== index)
     }))
   }
+  
 
   return (
-    <div className="min-h-screen bg-[#ffffe0] py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#ffffe0] mt-20 py-8 px-4 sm:px-6 lg:px-8">
       <Card className="max-w-2xl mx-auto border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-[#FFF0D9]">
         <CardContent className="p-6">
           <div className="flex flex-col items-center mb-8">

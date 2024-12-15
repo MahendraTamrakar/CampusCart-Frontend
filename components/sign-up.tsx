@@ -114,13 +114,7 @@ export function SignUpComponent() {
           <form onSubmit={handleSignUp} className="bg-white flex items-center justify-center flex-col px-10 h-full">
             <h1 className="text-3xl font-bold mb-12">Create Account</h1>
             <ErrorMessage message={errorMessage} />
-            {/* <div className="social-icons flex mb-5">
-              <a href="#" className="border border-[#ccc] rounded-[20%] text-red-500 hover:bg-red-500 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaGooglePlusG /></a>
-              <a href="#" className="border border-[#ccc] rounded-[20%] text-blue-600 hover:bg-blue-600 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaFacebookF /></a>
-              <a href="#" className="border border-[#ccc] rounded-[20%] text-blue-700 hover:bg-blue-700 hover:text-white inline-flex justify-center items-center m-[0_3px] w-10 h-10"><FaLinkedinIn /></a>
-            </div> */}
-{/*             <span className="text-xs mb-5"><span className='font-bold'>or</span> use your email for registration</span>
- */}            <input 
+             <input 
               type="text" 
               name="name"
               placeholder="Name" 

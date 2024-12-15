@@ -109,7 +109,9 @@ export function BuyPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#ffffe0] flex items-center justify-center">
-        <div className="text-2xl font-mono animate-pulse">Loading products...</div>
+        <div className="text-2xl font-mono animate-pulse">
+          <Image src="/images/1486.gif" alt="Loading" width={65} height={65} />
+        </div>
       </div>
     );
   }

@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="bg-[#FFF9E5] min-h-screen" >
         <ECommerceNav />
-        <div className="max-w-5xl mt-16 mb-16 mx-auto">
+        <div className="max-w-5xl mt-16 pt-20 mb-16 mx-auto">
         
       <div className="mb-12 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 transform skew-y-3 rounded-3xl shadow-lg"></div>
