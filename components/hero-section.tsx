@@ -103,20 +103,7 @@ export function LandingPagenew() {
     }
   }
 
-  const addToCart = () => {
-    const currentDeal = deals[currentDealIndex];
-    setCart((prevCart) => {
-      const existingItem = prevCart.find(item => item.name === currentDeal.name);
-      if (existingItem) {
-        return prevCart.map(item =>
-          item.name === currentDeal.name ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      } else {
-        return [...prevCart, { name: currentDeal.name, quantity: 1 }];
-      }
-    });
-    alert(`Added ${currentDeal.name} to cart!`);
-  };
+
 
   const categories = [
     { title: "Stationery", image: "/images/stationary.jpg" },
@@ -166,7 +153,7 @@ export function LandingPagenew() {
 
   return (
     <div className="min-h-screen bg-[#ffffe0] font-mono space-y-6 md:space-y-12">
-      <nav className={`fixed top-0 left-0 right-0 pl-12 pr-16 z-50 antialiased transition-colors duration-300 text-white bg-gray-900/90 backdrop-blur-lg z-50 shadow-md`}>
+      <nav className={`fixed top-0 left-0 right-0 px-4 sm:px-6 lg:px-12 text-white antialiased transition-colors duration-300 bg-gray-900/90 backdrop-blur-lg z-50 shadow-md`}>
         <div className="w-full px-4 mx-auto 2xl:px-0 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
@@ -188,7 +175,7 @@ export function LandingPagenew() {
                   />
                 </a>
               </div>
-              <ul className="lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
+              <ul className="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
                 {navItems.map((item) => (
                   <li key={item.name}>
                     <a
@@ -261,7 +248,7 @@ export function LandingPagenew() {
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className={`text-sm font-medium transition-colors duration-300 ${isScrolled ? 'text-gray-900 hover:text-primary-700' : 'text-white hover:text-primary-200'}`}
+                      className={`block text-sm font-medium transition-colors duration-300 ${isScrolled ? 'text-gray-900 hover:text-primary-700' : 'text-gray-800 hover:text-primary-600'}`}
                     >
                       {item.name}
                     </a>
